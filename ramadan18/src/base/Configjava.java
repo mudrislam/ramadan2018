@@ -22,17 +22,9 @@ public class Configjava extends Webdriverfunctions{
 	driver.manage().window().fullscreen();
 	driver.get ("http://facebook.com");
 	}
-//	Scanner BrowserName=new Scanner(System.in);
-//	//System.out.println("Which browser would you like to use?");
-//	public String Browser =BrowserName.next();
 
 
-
-	// do all the configure
-	// int driver
-	// setup browser
-	// company url
-	// xyz
+	
 	public String Browser="ff";
 
 	@BeforeTest

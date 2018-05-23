@@ -15,7 +15,5 @@ public class Webdriverfunctions {
 
 	}
 
-//	public void typebyXpath2(String x) {
-//		driver.findElement(By.xpath(x)).click();
-//	}
+
 }
