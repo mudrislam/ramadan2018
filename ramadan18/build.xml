@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="ramadan18">
+    <property environment="env"/>
+    <property name="apache-ant-1.10.3.link" value="../../Downloads/apache-ant-1.10.3"/>
+    <property name="new jars.link" value="../../new jars"/>
+    <property name="framework2018.location" value="../../Documents/Java_Workspace/framework2018"/>
+    <property name="ECLIPSE_HOME" value="../../eclipse/committers-oxygen/Eclipse.app/Contents/Eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <path id="TestNG.libraryclasspath">
+        <pathelement location="../../.p2/pool/plugins/org.testng_6.14.2.r201802161450.jar"/>
+        <pathelement location="../../.p2/pool/plugins/com.beust.jcommander_1.72.0.jar"/>
+        <pathelement location="../../.p2/pool/plugins/org.apache-extras.beanshell.bsh_2.0.0.b6.jar"/>
+        <pathelement location="../../.p2/pool/plugins/org.yaml.snakeyaml_1.17.0.jar"/>
+    </path>
+    <path id="ramadan18.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="../../seleniumjars/jars/byte-buddy-1.7.9.jar"/>
+        <pathelement location="../../seleniumjars/jars/client-combined-3.9.1-sources.jar"/>
+        <pathelement location="../../seleniumjars/jars/client-combined-3.9.1.jar"/>
+        <pathelement location="../../seleniumjars/jars/commons-codec-1.10.jar"/>
+        <pathelement location="../../seleniumjars/jars/commons-exec-1.3.jar"/>
+        <pathelement location="../../seleniumjars/jars/commons-logging-1.2.jar"/>
+        <pathelement location="../../seleniumjars/jars/gson-2.8.2.jar"/>
+        <pathelement location="../../seleniumjars/jars/guava-23.6-jre.jar"/>
+        <pathelement location="../../seleniumjars/jars/httpclient-4.5.3.jar"/>
+        <pathelement location="../../seleniumjars/jars/httpcore-4.4.6.jar"/>
+        <pathelement location="../../seleniumjars/jars/okhttp-3.9.1.jar"/>
+        <pathelement location="../../seleniumjars/jars/okio-1.13.0.jar"/>
+        <path refid="TestNG.libraryclasspath"/>
+        <pathelement location="${framework2018.location}/test-output"/>
+        <pathelement location="../../new jars/dom4j-1.6.1-hudson-1-sources.jar"/>
+        <pathelement location="../../new jars/log4j12-api-2.0-beta1-sources.jar"/>
+        <pathelement location="../../Downloads/apache-ant-1.10.3/bin"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="${apache-ant-1.10.3.link}">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="${new jars.link}">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <src path="${apache-ant-1.10.3.link}"/>
+            <src path="${new jars.link}"/>
+            <classpath refid="ramadan18.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="Newwww (1)">
+        <java classname="newwww.Newwww" failonerror="true" fork="yes">
+            <classpath refid="ramadan18.classpath"/>
+        </java>
+    </target>
+    <target name="Ramadan2018">
+        <java classname="ramadan18.Ramadan2018" failonerror="true" fork="yes">
+            <classpath refid="ramadan18.classpath"/>
+        </java>
+    </target>
+</project>
